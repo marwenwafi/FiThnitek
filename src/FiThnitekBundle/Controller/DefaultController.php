@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('@FiThnitek/FiThnitek/login.html.twig');
     }
+
+    public function backendAction()
+    {
+        return $this->render('@FiThnitek/FiThnitek/backend.html.twig');
+    }
 }

@@ -5,3 +5,7 @@ fi_thnitek_homepage:
 fi_thnitek_login:
     path:     /login
     defaults: { _controller: FiThnitekBundle:Default:login }
+
+fi_thnitek_backend:
+    path:     /backend
+    defaults: { _controller: FiThnitekBundle:Default:backend }
