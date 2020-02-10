@@ -1,13 +1,15 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace FiThnitekBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="LeaderBoard")
  */
 class LeaderBoard
 {
@@ -16,7 +18,7 @@ class LeaderBoard
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idLeaderBoard;
+    private $idleaderboard;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -35,15 +37,15 @@ class LeaderBoard
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="idAdmin", referencedColumnName="id")
+     * @ORM\JoinColumn(name="idadmin", referencedColumnName="id")
      */
     private $categ;
 
     /**
-     * @ManyToMany(targetEntity="AppBundle\Entity\User")
-     * @JoinTable(name="Leaderboard_Users",
-     *      joinColumns={@JoinColumn(name="idLeaderB", referencedColumnName="idLeaderBoard")},
-     *      inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="id", unique=true)}
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinTable(name="leaderboard_users",
+     *      joinColumns={@ORM\JoinColumn(name="idleaderb", referencedColumnName="idleaderboard")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="iduser", referencedColumnName="id")}
      *      )
      */
     private $utilisateurs;
@@ -53,6 +55,15 @@ class LeaderBoard
      * @ORM\JoinColumn(name="idadmin", referencedColumnName="id")
      */
     private $admin;
+
+    /**
+     * LeaderBoard constructor.
+     */
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed
@@ -117,5 +128,55 @@ class LeaderBoard
     {
         $this->periode = $periode;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCateg()
+    {
+        return $this->categ;
+    }
+
+    /**
+     * @param mixed $categ
+     */
+    public function setCateg($categ)
+    {
+        $this->categ = $categ;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * @param ArrayCollection $utilisateurs
+     */
+    public function setUtilisateurs($utilisateurs)
+    {
+        $this->utilisateurs = $utilisateurs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+    }
+
+
 
 }

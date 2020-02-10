@@ -1,7 +1,7 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace FiThnitekBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -30,7 +30,7 @@ class Categorie
 
 
     /**
-     * @ORM\Column(type="String",length=255)
+     * @ORM\Column(type="string",length=255)
      */
     private $typeCategorie;
 
@@ -97,5 +97,7 @@ class Categorie
     {
         $this->typeCategorie = $typeCategorie;
     }
+
+
 
 }

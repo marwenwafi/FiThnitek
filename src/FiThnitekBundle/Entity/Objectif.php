@@ -145,5 +145,23 @@ class Objectif
         $this->etat = $etat;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+    }
+
+
+
 
 }
