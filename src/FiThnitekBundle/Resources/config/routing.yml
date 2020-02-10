@@ -5,33 +5,30 @@ fi_thnitek_homepage:
 fi_thnitek_login:
     path:     /login
     defaults: { _controller: FiThnitekBundle:Default:login }
-fi_thnitek_register:
-    path:     /register
-    defaults: { _controller: FiThnitekBundle:Default:register }
-fi_thnitek_offrecovoiturage:
-    path:     /offrecovoiturage
-    defaults: { _controller: FiThnitekBundle:Default:offrecovoiturage }
-fi_thnitek_affichagecovoiturageutilisateur:
-    path:     /affichagecovoiturageutilisateur
-    defaults: { _controller: FiThnitekBundle:Default:affichagecovoiturageutilisateur }
-fi_thnitek_ajoutcovoiturageutilisateur:
-    path:     /ajoutcovoiturage
-    defaults: { _controller: FiThnitekBundle:Covoiturage:ajoutoffrecovoiturage }
-fi_thnitek_affichcovoiturageutilisateur:
-    path:     /affichagebase
-    defaults: { _controller: FiThnitekBundle:Covoiturage:readoffre }
-fi_thnitek_supprimeroffre:
-    path:     /supprimeroffre/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:supprimeroffre }
-fi_thnitek_modifieroffre:
-    path:     /modifieroffre/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:modifieroffrecovoiturage }
-fi_thnitek_afficheall:
-    path:     /afficheall
-    defaults: { _controller: FiThnitekBundle:Covoiturage:afficheall }
-fi_thnitek_ajoutreservation:
-    path:     /ajoutreserv/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:ajoutreservation }
-fi_thnitek_readreservation:
-    path:     /readres
-    defaults: { _controller: FiThnitekBundle:Covoiturage:readreserver }
+fi_thnitek_OffreColis:
+    path:     /OffreColis
+    defaults: { _controller: FiThnitekBundle:Default:OffreColis }
+fi_thnitek_CreateOffre:
+    path:     /CreateOffre
+    defaults: { _controller: FiThnitekBundle:OffreColis:ajouteroffrecolis }
+fi_thnitek_afficherOffre:
+    path:     /afficherOffre
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherOffre }
+fi_thnitek_supprimerOffre:
+    path:     /supprimerOffre/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerOffre }
+fi_thnitek_ModifierOffre:
+    path:     /modifierOffre/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:ModifierOffre }
+fi_thnitek_afficherall:
+    path:     /afficherall
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherall }
+fi_thnitek_ajouterReservation:
+    path:     /ajouterReservation/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:ajouterReservation }
+fi_thnitek_affichageReservation:
+    path:     /affichageReservation
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherReserver }
+fi_thnitek_supprimerReservation:
+    path:     /supprimerReservation/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerReserver }

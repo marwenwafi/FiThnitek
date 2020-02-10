@@ -15,16 +15,8 @@ class DefaultController extends Controller
     {
         return $this->render('@FiThnitek/FiThnitek/login.html.twig');
     }
-    public function registerAction()
+    public function OffreColisAction()
     {
-        return $this->render('@FiThnitek/FiThnitek/register.html.twig');
-    }
-    public function offrecovoiturageAction()
-    {
-        return $this->render('@FiThnitek/FiThnitek/offrecovoiturage.html.twig');
-    }
-    public function affichagecovoiturageutilisateurAction()
-    {
-        return $this->render('@FiThnitek/FiThnitek/affichagecovoiturageutilisateur.html.twig');
+        return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig');
     }
 }
