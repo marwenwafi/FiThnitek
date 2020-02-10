@@ -4,7 +4,7 @@ namespace FiThnitekBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LeaderBoardController extends Controller
+class CategoryController extends Controller
 {
     public function CreateLeaderBoardAction()
     {

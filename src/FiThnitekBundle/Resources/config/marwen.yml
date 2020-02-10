@@ -1,0 +1,15 @@
+fi_thnitek_addObjectif:
+  path:     /addObjectif
+  defaults: { _controller: FiThnitekBundle:Objectif:addObjectif }
+
+fi_thnitek_listObjectif:
+  path:     /listObjectif
+  defaults: { _controller: FiThnitekBundle:Objectif:listObjectif }
+
+fi_thnitek_modifyObjectif:
+  path:     /modifyObjectif/{id}
+  defaults: { _controller: FiThnitekBundle:Objectif:modifyObjectif }
+
+fi_thnitek_deleteObjectif:
+  path:     /listObjectif/{id}
+  defaults: { _controller: FiThnitekBundle:Objectif:deleteObjectif }

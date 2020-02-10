@@ -2,12 +2,17 @@ fi_thnitek_homepage:
     path:     /
     defaults: { _controller: FiThnitekBundle:Default:index }
 
+fi_thnitek_marwen_routes:
+    resource: "@FiThnitekBundle/Resources/config/marwen.yml"
+
 fi_thnitek_login:
     path:     /login
     defaults: { _controller: FiThnitekBundle:Default:login }
+
 fi_thnitek_register:
     path:     /register
     defaults: { _controller: FiThnitekBundle:Default:register }
+
 fi_thnitek_offrecovoiturage:
     path:     /offrecovoiturage
     defaults: { _controller: FiThnitekBundle:Default:offrecovoiturage }
