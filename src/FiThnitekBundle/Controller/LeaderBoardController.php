@@ -4,20 +4,26 @@ namespace FiThnitekBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class LeaderBoardController extends Controller
 {
-    public function indexAction()
+    public function CreateLeaderBoardAction()
     {
         return $this->render('@FiThnitek/FiThnitek/index.html.twig');
     }
 
-    public function loginAction()
+    public function ModifyLeaderBoardAction()
     {
-        return $this->render('@FiThnitek/FiThnitek/login.html.twig');
+        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
     }
 
-    public function backendAction()
+    public function DeleteLeaderBoardAction()
     {
-        return $this->render('@FiThnitek/FiThnitek/backend.html.twig');
+        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
     }
+
+    public function ListLeaderBoardsAction()
+    {
+        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
+    }
+
 }

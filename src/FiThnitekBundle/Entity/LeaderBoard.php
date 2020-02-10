@@ -8,178 +8,114 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
+class LeaderBoard
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $idLeaderBoard;
+
     /**
      * @ORM\Column(type="string",length=255)
      */
-
-    protected $prenom ;
+    private $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-
-    protected $tel ;
-    /**
-     * @ORM\Column(type="string",length=255)
-     */
-
-    protected $image ;
+    private $taille;
 
     /**
      * @ORM\Column(type="date")
      */
+    private $periode;
 
-    protected $datedenaissance ;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="idAdmin", referencedColumnName="id")
      */
-    protected $nbroffre ;
+    private $categ;
+
     /**
-     * @ORM\Column(type="string",length=255)
+     * @ManyToMany(targetEntity="AppBundle\Entity\User")
+     * @JoinTable(name="Leaderboard_Users",
+     *      joinColumns={@JoinColumn(name="idLeaderB", referencedColumnName="idLeaderBoard")},
+     *      inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="id", unique=true)}
+     *      )
      */
-    protected $type ;
-    public function __construct()
+    private $utilisateurs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="idadmin", referencedColumnName="id")
+     */
+    private $admin;
+
+    /**
+     * @return mixed
+     */
+    public function getIdLeaderBoard()
     {
-        parent::__construct();
-        // your own logic
+        return $this->idLeaderBoard;
     }
 
     /**
-     * @return string|null
+     * @param mixed $idLeaderBoard
      */
-    public function getConfirmationToken()
+    public function setIdLeaderBoard($idLeaderBoard)
     {
-        return $this->confirmationToken;
-    }
-
-    /**
-     * @param string|null $confirmationToken
-     */
-    public function setConfirmationToken($confirmationToken)
-    {
-        $this->confirmationToken = $confirmationToken;
+        $this->idLeaderBoard = $idLeaderBoard;
     }
 
     /**
      * @return mixed
      */
-    public function getDatedenaissance()
+    public function getDescription()
     {
-        return $this->datedenaissance;
+        return $this->description;
     }
 
     /**
-     * @param mixed $datedenaissance
+     * @param mixed $description
      */
-    public function setDatedenaissance($datedenaissance)
+    public function setDescription($description)
     {
-        $this->datedenaissance = $datedenaissance;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
+        $this->description = $description;
     }
 
     /**
      * @return mixed
      */
-    public function getImage()
+    public function getTaille()
     {
-        return $this->image;
+        return $this->taille;
     }
 
     /**
-     * @param mixed $image
+     * @param mixed $taille
      */
-    public function setImage($image)
+    public function setTaille($taille)
     {
-        $this->image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNbroffre()
-    {
-        return $this->nbroffre;
-    }
-
-    /**
-     * @param mixed $nbroffre
-     */
-    public function setNbroffre($nbroffre)
-    {
-        $this->nbroffre = $nbroffre;
+        $this->taille = $taille;
     }
 
     /**
      * @return mixed
      */
-    public function getPrenom()
+    public function getPeriode()
     {
-        return $this->prenom;
+        return $this->periode;
     }
 
     /**
-     * @param mixed $prenom
+     * @param mixed $periode
      */
-    public function setPrenom($prenom)
+    public function setPeriode($periode)
     {
-        $this->prenom = $prenom;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTel()
-    {
-        return $this->tel;
-    }
-
-    /**
-     * @param mixed $tel
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
+        $this->periode = $periode;
     }
 
 }

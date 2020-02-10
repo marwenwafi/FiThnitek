@@ -9,14 +9,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class LeaderBoard
+class Objectif
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idLeaderBoard;
+    private $idObjectif;
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $titre;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -24,29 +29,56 @@ class LeaderBoard
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string",length=255)
      */
-    private $taille;
+    private $type;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="integer")
      */
-    private $periode ;
+    private $but;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $etat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="idadmin", referencedColumnName="id")
+     */
+    private $admin;
 
     /**
      * @return mixed
      */
-    public function getIdLeaderBoard()
+    public function getIdObjectif()
     {
-        return $this->idLeaderBoard;
+        return $this->idObjectif;
     }
 
     /**
-     * @param mixed $idLeaderBoard
+     * @param mixed $idObjectif
      */
-    public function setIdLeaderBoard($idLeaderBoard)
+    public function setIdObjectif($idObjectif)
     {
-        $this->idLeaderBoard = $idLeaderBoard;
+        $this->idObjectif = $idObjectif;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
     }
 
     /**
@@ -68,33 +100,50 @@ class LeaderBoard
     /**
      * @return mixed
      */
-    public function getTaille()
+    public function getType()
     {
-        return $this->taille;
+        return $this->type;
     }
 
     /**
-     * @param mixed $taille
+     * @param mixed $type
      */
-    public function setTaille($taille)
+    public function setType($type)
     {
-        $this->taille = $taille;
+        $this->type = $type;
     }
 
     /**
      * @return mixed
      */
-    public function getPeriode()
+    public function getBut()
     {
-        return $this->periode;
+        return $this->but;
     }
 
     /**
-     * @param mixed $periode
+     * @param mixed $but
      */
-    public function setPeriode($periode)
+    public function setBut($but)
     {
-        $this->periode = $periode;
+        $this->but = $but;
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param mixed $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+
 }

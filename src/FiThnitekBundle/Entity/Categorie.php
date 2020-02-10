@@ -9,44 +9,61 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class LeaderBoard
+class Categorie
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idLeaderBoard;
+    private $idCategorie;
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $titre;
 
     /**
      * @ORM\Column(type="string",length=255)
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $taille;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="String",length=255)
      */
-    private $periode ;
+    private $typeCategorie;
 
     /**
      * @return mixed
      */
-    public function getIdLeaderBoard()
+    public function getIdCategorie()
     {
-        return $this->idLeaderBoard;
+        return $this->idCategorie;
     }
 
     /**
-     * @param mixed $idLeaderBoard
+     * @param mixed $idCategorie
      */
-    public function setIdLeaderBoard($idLeaderBoard)
+    public function setIdCategorie($idCategorie)
     {
-        $this->idLeaderBoard = $idLeaderBoard;
+        $this->idCategorie = $idCategorie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
     }
 
     /**
@@ -68,33 +85,17 @@ class LeaderBoard
     /**
      * @return mixed
      */
-    public function getTaille()
+    public function getTypeCategorie()
     {
-        return $this->taille;
+        return $this->typeCategorie;
     }
 
     /**
-     * @param mixed $taille
+     * @param mixed $typeCategorie
      */
-    public function setTaille($taille)
+    public function setTypeCategorie($typeCategorie)
     {
-        $this->taille = $taille;
+        $this->typeCategorie = $typeCategorie;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPeriode()
-    {
-        return $this->periode;
-    }
-
-    /**
-     * @param mixed $periode
-     */
-    public function setPeriode($periode)
-    {
-        $this->periode = $periode;
-    }
-    
 }
