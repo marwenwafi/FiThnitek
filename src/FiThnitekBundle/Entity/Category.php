@@ -9,19 +9,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Categorie
+class Category
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idCategorie;
+    private $idCategory;
 
     /**
      * @ORM\Column(type="string",length=255)
      */
-    private $titre;
+    private $title;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -32,38 +32,38 @@ class Categorie
     /**
      * @ORM\Column(type="string",length=255)
      */
-    private $typeCategorie;
+    private $type;
 
     /**
      * @return mixed
      */
-    public function getIdCategorie()
+    public function getIdCategory()
     {
-        return $this->idCategorie;
+        return $this->idCategory;
     }
 
     /**
-     * @param mixed $idCategorie
+     * @param mixed $idCategory
      */
-    public function setIdCategorie($idCategorie)
+    public function setIdCategory($idCategory)
     {
-        $this->idCategorie = $idCategorie;
+        $this->idCategory = $idCategory;
     }
 
     /**
      * @return mixed
      */
-    public function getTitre()
+    public function getTitle()
     {
-        return $this->titre;
+        return $this->title;
     }
 
     /**
-     * @param mixed $titre
+     * @param mixed $title
      */
-    public function setTitre($titre)
+    public function setTitle($title)
     {
-        $this->titre = $titre;
+        $this->title = $title;
     }
 
     /**
@@ -85,19 +85,18 @@ class Categorie
     /**
      * @return mixed
      */
-    public function getTypeCategorie()
+    public function getType()
     {
-        return $this->typeCategorie;
+        return $this->type;
     }
 
     /**
-     * @param mixed $typeCategorie
+     * @param mixed $type
      */
-    public function setTypeCategorie($typeCategorie)
+    public function setType($type)
     {
-        $this->typeCategorie = $typeCategorie;
+        $this->type = $type;
     }
-
 
 
 }
