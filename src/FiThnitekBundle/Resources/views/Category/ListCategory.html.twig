@@ -21,6 +21,7 @@
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Type</th>
+                <th scope="col">Nature</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -34,6 +35,7 @@
                     <td>{{ c.title }} </td>
                     <td>{{ c.description }} </td>
                     <td>{{ c.type }} </td>
+                    <td>{{ c.nature }} </td>
                     <td><a href="{{ path('fi_thnitek_modifyCategory', {'id': c.IdCategory}) }}"> <input type="button" value="Modifier"></a></td>
                     <td><a href="{{ path('fi_thnitek_deleteCategory', {'id': c.IdCategory}) }}"> <input type="button" value="Supprimer"></a></td>
                 </tr>

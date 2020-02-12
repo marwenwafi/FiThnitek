@@ -16,7 +16,7 @@ class Category
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idCategory;
+    private $id_Category;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -35,20 +35,26 @@ class Category
     private $type;
 
     /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $nature;
+
+    /**
      * @return mixed
      */
     public function getIdCategory()
     {
-        return $this->idCategory;
+        return $this->id_Category;
     }
 
     /**
-     * @param mixed $idCategory
+     * @param mixed $id_Category
      */
-    public function setIdCategory($idCategory)
+    public function setIdCategory($id_Category)
     {
-        $this->idCategory = $idCategory;
+        $this->id_Category = $id_Category;
     }
+
 
     /**
      * @return mixed
@@ -97,6 +103,23 @@ class Category
     {
         $this->type = $type;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNature()
+    {
+        return $this->nature;
+    }
+
+    /**
+     * @param mixed $nature
+     */
+    public function setNature($nature)
+    {
+        $this->nature = $nature;
+    }
+
 
 
 }

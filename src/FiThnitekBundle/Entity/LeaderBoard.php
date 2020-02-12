@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="LeaderBoard")
  */
 class LeaderBoard
 {
@@ -23,23 +22,33 @@ class LeaderBoard
     /**
      * @ORM\Column(type="string",length=255)
      */
+    private $title;
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $taille;
+    private $size;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $periode;
+    private $start_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="idadmin", referencedColumnName="id")
+     * @ORM\Column(type="date")
      */
-    private $categ;
+    private $end_date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id_category")
+     */
+    private $category;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
@@ -64,21 +73,36 @@ class LeaderBoard
         $this->utilisateurs = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdleaderboard()
+    {
+        return $this->idleaderboard;
+    }
+
+    /**
+     * @param mixed $idleaderboard
+     */
+    public function setIdleaderboard($idleaderboard)
+    {
+        $this->idleaderboard = $idleaderboard;
+    }
 
     /**
      * @return mixed
      */
-    public function getIdLeaderBoard()
+    public function getTitle()
     {
-        return $this->idLeaderBoard;
+        return $this->title;
     }
 
     /**
-     * @param mixed $idLeaderBoard
+     * @param mixed $title
      */
-    public function setIdLeaderBoard($idLeaderBoard)
+    public function setTitle($title)
     {
-        $this->idLeaderBoard = $idLeaderBoard;
+        $this->title = $title;
     }
 
     /**
@@ -100,49 +124,65 @@ class LeaderBoard
     /**
      * @return mixed
      */
-    public function getTaille()
+    public function getSize()
     {
-        return $this->taille;
+        return $this->size;
     }
 
     /**
-     * @param mixed $taille
+     * @param mixed $size
      */
-    public function setTaille($taille)
+    public function setSize($size)
     {
-        $this->taille = $taille;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPeriode()
-    {
-        return $this->periode;
-    }
-
-    /**
-     * @param mixed $periode
-     */
-    public function setPeriode($periode)
-    {
-        $this->periode = $periode;
+        $this->size = $size;
     }
 
     /**
      * @return mixed
      */
-    public function getCateg()
+    public function getStartDate()
     {
-        return $this->categ;
+        return $this->start_date;
     }
 
     /**
-     * @param mixed $categ
+     * @param mixed $start_date
      */
-    public function setCateg($categ)
+    public function setStartDate($start_date)
     {
-        $this->categ = $categ;
+        $this->start_date = $start_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndDate()
+    {
+        return $this->end_date;
+    }
+
+    /**
+     * @param mixed $end_date
+     */
+    public function setEndDate($end_date)
+    {
+        $this->end_date = $end_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 
     /**

@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Categories</h1>
+                    <h1 class="m-0 text-dark">LeaderBoards</h1>
                  </div><!-- /.row -->
              </div><!-- /.container-fluid -->
          </div>
@@ -20,22 +20,28 @@
                 <th scope="col">ID</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
-                <th scope="col">Type</th>
+                <th scope="col">Taille</th>
+                <th scope="col">Date Début</th>
+                <th scope="col">Date Fin</th>
+                <th scope="col">Categorie</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
             </thead>
 
-            {% for c in table %}
+            {% for l in table %}
 
 
                 <tr>
-                    <th scope="col">{{ c.IdCategory }}  </th>
-                    <td>{{ c.title }} </td>
-                    <td>{{ c.description }} </td>
-                    <td>{{ c.type }} </td>
-                    <td><a href="{{ path('fi_thnitek_modifyCategory', {'id': c.IdCategory}) }}"> <input type="button" value="Modifier"></a></td>
-                    <td><a href="{{ path('fi_thnitek_deleteCategory', {'id': c.IdCategory}) }}"> <input type="button" value="Supprimer"></a></td>
+                    <th scope="col">{{ l.Idleaderboard }}  </th>
+                    <td>{{ l.title }} </td>
+                    <td>{{ l.description }} </td>
+                    <td>{{ l.size }} </td>
+                    <td>{{ l.StartDate|date("d/m/Y") }} </td>
+                    <td>{{ l.EndDate|date("d/m/Y") }} </td>
+                    <td>{{ l.category.title }} </td>
+                    <td><a href="{{ path('fi_thnitek_modifyLeaderBoard', {'id': l.Idleaderboard}) }}"> <input type="button" value="Modifier"></a></td>
+                    <td><a href="{{ path('fi_thnitek_deleteLeaderBoard', {'id': l.Idleaderboard}) }}"> <input type="button" value="Supprimer"></a></td>
                 </tr>
             {% endfor %}
         </table>
