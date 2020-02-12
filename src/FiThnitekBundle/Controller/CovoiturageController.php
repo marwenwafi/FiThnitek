@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class CovoiturageController extends Controller
 {
 
-
+///////////////Ajouter offre covoiturage /////////////////////////////////
     public function ajoutoffrecovoiturageAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -30,12 +30,10 @@ class CovoiturageController extends Controller
             $em->flush();
             return $this->render('@FiThnitek/FiThnitek/offrecovoiturage.html.twig', array('cov' => $cov));
 
-        }
-
-
+                                                 }
         return $this->render('@FiThnitek/FiThnitek/offrecovoiturage.html.twig', array('cov' => $cov));
     }
-
+/////////////////////////// Afficher offre faite par l'utilisateur////////////////////////////////////
     public function readoffreAction()
     {
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -43,7 +41,7 @@ class CovoiturageController extends Controller
         $em = $this->getDoctrine()->getManager()->getRepository(offreCovoiturage::class)->findBy(array('idutilisateur'=>$user->getId()));
         return $this->render('@FiThnitek/FiThnitek/affichagecovoiturageutilisateur.html.twig', array('r' => $em));
     }
-
+//////////////////////////// Supprimer une offre //////////////////////////////////////////
     public function supprimeroffreAction($id)
     {
 
@@ -55,7 +53,7 @@ class CovoiturageController extends Controller
 
         return $this->redirectToRoute("fi_thnitek_affichcovoiturageutilisateur");
     }
-
+///////////////////////////// modifier une offre de covoiturage /////////////////////////
     public function modifieroffrecovoiturageAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -75,24 +73,25 @@ class CovoiturageController extends Controller
             $em->flush();
             return $this->render('@FiThnitek/FiThnitek/modifieroffrecovoiturage.html.twig', array('cov' => $cov));
 
-        }
+                                                }
         return $this->render('@FiThnitek/FiThnitek/modifieroffrecovoiturage.html.twig', array('cov' => $cov));
 
     }
+///////////////////////////////Afficher toute les offres ////////////////////////////////
     public function afficheallAction()
     {$em = $this->getDoctrine()->getManager();
         $cov = $em->getRepository(offreCovoiturage::class)->findAll();
 
         return $this->render('@FiThnitek/FiThnitek/affichageallcovoiturage.html.twig', array('cov' => $cov));
     }
-
+///////////////////////////// Ajout une réservation ////////////////////////////////
     public function ajoutreservationAction(Request $request,$id)
     {
         $reservation = new ReservationCovoiturage();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         $em = $this->getDoctrine()->getManager();
-
+      //  $cov = $em->getRepository(offreCovoiturage::class)->findAll();
 
 $offre= $this->getDoctrine()->getRepository(offreCovoiturage::class)->find($id);
 
@@ -106,16 +105,14 @@ $offre= $this->getDoctrine()->getRepository(offreCovoiturage::class)->find($id);
 
             $em->persist($reservation);
             $em->flush();
-            return $this->render('@FiThnitek/FiThnitek/login.html.twig', array('res' => $reservation));
+
         }
 
 
-
-        return $this->render('@FiThnitek/FiThnitek/register.html.twig');
-
-
+        return $this->redirectToRoute("fi_thnitek_afficheall");
 
     }
+////////////////////////Afficher reservation de l'utilisateur ///////////////////////////////
     public function readreserverAction()
     {
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -123,4 +120,81 @@ $offre= $this->getDoctrine()->getRepository(offreCovoiturage::class)->find($id);
         $em = $this->getDoctrine()->getManager()->getRepository(ReservationCovoiturage::class)->findBy(array('idutilisateurr'=>$user->getId()));
         return $this->render('@FiThnitek/FiThnitek/affichagereservecovoiturageutilisateur.html.twig', array('r' => $em));
     }
+////////////////////////Supprimer une reservation de covoiturage ///////////////////////////////////
+    public function supprimerrescovAction($id)
+    {
+        $ids = $this->getDoctrine()->getRepository(ReservationCovoiturage::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($ids);
+        $em->flush();
+        //$tab = $this->getDoctrine()->getRepository(Club::class)->findAll() ;
+
+        return $this->redirectToRoute("fi_thnitek_readreservation");
+    }
+/////////////////////////////////Back////////////////////////////////////////////
+
+    public function ajoutoffrecovbackAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cov = new offreCovoiturage();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        //dump($user);
+        if ($request->isMethod('POST')) {
+
+            $cov->setIdutilisateur($user);
+            $cov->setDestination($request->get('destinationback'));
+            $cov->setDepart($request->get('departureBack'));
+            $cov->setPrix($request->get('prixback'));
+            $cov->setNbrplaceo($request->get('nbrback'));
+            $cov->setDate($request->get('dateeback'));
+            $em->persist($cov);
+            $em->flush();
+            return $this->render('@FiThnitek/FiThnitek/ajoutcovoiturageback.html.twig', array('cov' => $cov));
+
+        }
+        return $this->render('@FiThnitek/FiThnitek/ajoutcovoiturageback.html.twig', array('cov' => $cov));
+    }
+/////////Afficher all offers back ///////
+    public function afficheallcovbackAction()
+    {$em = $this->getDoctrine()->getManager();
+        $cov = $em->getRepository(offreCovoiturage::class)->findAll();
+
+        return $this->render('@FiThnitek/FiThnitek/affichageoffrecovoiturageback.html.twig',array('cov'=>$cov));
+    }
+///////////////supprimer une offre back ////////////////////////
+    public function supprimercovbackAction($id)
+    {
+
+        $ids = $this->getDoctrine()->getRepository(offreCovoiturage::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($ids);
+        $em->flush();
+        //$tab = $this->getDoctrine()->getRepository(Club::class)->findAll() ;
+
+        return $this->redirectToRoute("fi_thnitek_affichagecovback");
+    }
+    public function modifiercovbackAction(Request $request, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $cov = $em->getRepository(offreCovoiturage::class)->find($id);
+        //$cov = new offreCovoiturage();
+        //$user = $this->container->get('security.token_storage')->getToken()->getUser();
+        //dump($user);
+        if ($request->isMethod('POST')) {
+
+
+            $cov->setDestination($request->get('destinationback'));
+            $cov->setDepart($request->get('departureBack'));
+            $cov->setPrix($request->get('prixback'));
+            $cov->setNbrplaceo($request->get('nbrback'));
+            $cov->setDate($request->get('dateeback'));
+            //$em->persist($cov);
+            $em->flush();
+            return $this->render('@FiThnitek/FiThnitek/modifiercovoiturageback.html.twig', array('cov' => $cov));
+
+        }
+        return $this->render('@FiThnitek/FiThnitek/modifiercovoiturageback.html.twig', array('cov' => $cov));
+    }
+
 }
