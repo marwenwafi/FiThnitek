@@ -28,9 +28,10 @@ class Objectif
     private $description;
 
     /**
-     * @ORM\Column(type="string",length=255)
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id_category")
      */
-    private $type;
+    private $category;
 
     /**
      * @ORM\Column(type="integer")
@@ -100,18 +101,20 @@ class Objectif
     /**
      * @return mixed
      */
-    public function getType()
+    public function getCategory()
     {
-        return $this->type;
+        return $this->category;
     }
 
     /**
-     * @param mixed $type
+     * @param mixed $category
      */
-    public function setType($type)
+    public function setCategory($category)
     {
-        $this->type = $type;
+        $this->category = $category;
     }
+
+
 
     /**
      * @return mixed
