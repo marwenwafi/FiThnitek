@@ -43,13 +43,11 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="integer")
      */
-    protected $nbroffre =0 ;
+    protected $nbroffre=0 ;
     /**
      * @ORM\Column(type="string",length=255)
      */
     protected $type ;
-
-
     public function __construct()
     {
         parent::__construct();
