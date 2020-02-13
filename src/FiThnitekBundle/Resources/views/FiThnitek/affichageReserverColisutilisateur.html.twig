@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% extends 'FiThnitek/baseFiThnitek.html.twig' %}
+=======
+{% extends 'FiThnitek/baseFrontFiThnitek.html.twig' %}
+>>>>>>> marwen
 {% block event %}
 
 {% endblock %}
@@ -64,6 +68,15 @@
                             <tr>
                                 <th>Departure</th>
                                 <th>Destination</th>
+<<<<<<< HEAD
+=======
+                                <th>Prix</th>
+                                <th>Largeur</th>
+                                <th>Hauterur</th>
+                                <th>User</th>
+
+
+>>>>>>> marwen
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -71,22 +84,48 @@
                             <tbody>
                             {% for i in r %}
                             <tr>
+<<<<<<< HEAD
+=======
+
+>>>>>>> marwen
                                 <td class="product-thumb">
                                     {{ i.idOffre.lieuDepart}}</td>
                                 <td class="product-details">
                                     {{ i.idOffre.lieuArrive}}
                                 </td>
+<<<<<<< HEAD
+=======
+                                <td class="product-details">
+                                    {{  i.idOffre.prix }}
+                                </td>
+                                <td class="product-details">
+                                    {{  i.LargeurResv }}
+                                </td>
+                                <td class="product-details">
+                                    {{  i.HauteurResv }}
+                                </td>
+                                <td class="product-details">
+                                    {{  i.idUR }}
+                                </td>
+
+>>>>>>> marwen
                                 <td class="product-category"><span class="categories">{{ i.idOffre.dateCol }}</span></td>
                                 <td class="action" data-title="Action">
                                     <div class="">
                                         <ul class="list-inline justify-content-center">
 
+<<<<<<< HEAD
                                             <li class="list-inline-item">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
                                                 <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+=======
+                                           s
+                                            <li class="list-inline-item">
+                                                <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="{{ path('fi_thnitek_supprimerReservation',{'id': i.idReservationColis }) }}">
+>>>>>>> marwen
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </li>

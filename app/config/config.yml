@@ -9,6 +9,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    events_directory: '%kernel.project_dir%/web/uploads/eventsImages'
+
 
 framework:
     #esi: ~

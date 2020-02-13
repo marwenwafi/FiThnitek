@@ -43,7 +43,17 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="integer")
      */
+<<<<<<< HEAD
     protected $nbroffre ;
+=======
+    protected $nbroffre=0 ;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $points = 0 ;
+
+>>>>>>> marwen
     /**
      * @ORM\Column(type="string",length=255)
      */
@@ -180,6 +190,22 @@ class User extends BaseUser
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @param int $points
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
     }
 
 }

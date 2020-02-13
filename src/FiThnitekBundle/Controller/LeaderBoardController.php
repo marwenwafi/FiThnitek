@@ -2,28 +2,56 @@
 
 namespace FiThnitekBundle\Controller;
 
+use FiThnitekBundle\Entity\LeaderBoard;
+use FiThnitekBundle\Form\LeaderBoardType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class LeaderBoardController extends Controller
 {
-    public function CreateLeaderBoardAction()
+    public function addLeaderBoardAction(Request $request)
     {
-        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
+        $leaderb = new LeaderBoard();
+        $form = $this->createForm(LeaderBoardType::class, $leaderb, array("label"=>"Ajouter"));
+        $form = $form->handleRequest($request);
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($leaderb);
+            $em->flush();
+            return $this->redirectToRoute("fi_thnitek_listLeaderBoard");
+        }
+        return $this->render('@FiThnitek/LeaderBoard/AddLeaderBoard.html.twig', array ("f"=>$form->createView()));
     }
 
-    public function ModifyLeaderBoardAction()
+    public function modifyLeaderBoardAction(Request $request, $id)
     {
-        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
+        $leaderb = $this->getDoctrine()->getRepository(LeaderBoard:: class)->find($id);
+        $form = $this->createForm(LeaderBoardType::class, $leaderb, array("label"=>"Modifier"));
+        $form = $form->handleRequest($request);
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($leaderb);
+            $em->flush();
+            return $this->redirectToRoute("fi_thnitek_listLeaderBoard");
+        }
+        return $this->render('@FiThnitek/LeaderBoard/ModifyLeaderBoard.html.twig', array ("f"=>$form->createView()));
     }
 
-    public function DeleteLeaderBoardAction()
+    public function deleteLeaderBoardAction($id)
     {
-        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
+        $cat = $this->getDoctrine()->getRepository(LeaderBoard:: class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($cat);
+        $em->flush();
+        return $this->redirectToRoute("fi_thnitek_listLeaderBoard");
     }
 
-    public function ListLeaderBoardsAction()
+    public function ListLeaderBoardAction()
     {
-        return $this->render('@FiThnitek/FiThnitek/index.html.twig');
+        $mod = $this->getDoctrine()->getRepository(LeaderBoard:: class)->findAll();
+        return $this->render('@FiThnitek/LeaderBoard/ListLeaderBoard.html.twig', array('table'=>$mod));
     }
 
 }

@@ -40,7 +40,11 @@ class OffreColisController extends Controller
             $Offre->setPrix($request->get('Prix'));
             $upd->persist($Offre);
             $upd->flush();
+<<<<<<< HEAD
             return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig');
+=======
+            return $this->redirectToRoute("fi_thnitek_afficherOffre");
+>>>>>>> marwen
         }
         return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig',array('Offre'=> $Offre
         ));
@@ -107,7 +111,12 @@ class OffreColisController extends Controller
             $Reservation->setPrix(5);
             $upd->persist($Reservation);
             $upd->flush();
+<<<<<<< HEAD
             return $this->render('@FiThnitek/FiThnitek/login.html.twig',array('r'=> $Reservation));
+=======
+            return$this->redirectToRoute("fi_thnitek_affichageReservation");
+          //  return $this->render('@FiThnitek/FiThnitek/login.html.twig',array('r'=> $Reservation));
+>>>>>>> marwen
         }
         return $this->render('@FiThnitek/FiThnitek/register.html.twig');
 
@@ -127,5 +136,106 @@ class OffreColisController extends Controller
         $supp->flush();
         return $this->redirectToRoute('fi_thnitek_affichageReservation');
     }
+<<<<<<< HEAD
+=======
+////////////////////////////////Back///////////////////////////////////////////////////
+    public function afficherOffrebackAction()
+    {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+        $em=$this->getDoctrine()->getRepository(OffreColis::class)->findAll();
+        return $this->render('@FiThnitek/FiThnitek/affichageoffrecolisback.html.twig',array('r'=>$em));
+    }
+    public function ajouteroffrecolisbackAction(Request $request)
+    {
+        $upd=$this->getDoctrine()->getManager();
+        $Offre=new OffreColis();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        if ($request->isMethod('POST'))
+        {
+            $Offre->setIdU($user);
+            $Offre->setLieuDepart($request->get('Depart'));
+            $Offre->setDateCol($request->get('Date'));
+            $Offre->setHauteur($request->get('Hauteur'));
+            $Offre->setLargeur($request->get('Largeur'));
+            $Offre->setVoiture($request->get('Modele'));
+            $Offre->setLieuArrive($request->get('Arrive'));
+            $Offre->setPrix($request->get('Prix'));
+            $upd->persist($Offre);
+            $upd->flush();
+            return $this->redirectToRoute('fi_thnitek_afficherOffreback');
+        }
+return $this->render('@FiThnitek/FiThnitek/ajouterOffreBack.html.twig');
+    }
+    public function supprimerOffrebackAction($id)
+    {
+        $supp=$this->getDoctrine()->getManager();
+        $ids=$this->getDoctrine()->getRepository(OffreColis::class)->find($id);
+        $supp->remove($ids);
+        $supp->flush();
+        return $this->redirectToRoute('fi_thnitek_afficherOffreback');
+    }
+    public function ModifierOffrebackAction(Request $request,$id)
+    {   $upd=$this->getDoctrine()->getManager();
+        $Offre=$this->getDoctrine()->getRepository(OffreColis::class)->find($id);
+        if ($request->isMethod('POST'))
+        {
+
+            $Offre->setLieuDepart($request->get('Depart'));
+            $Offre->setDateCol($request->get('Date'));
+            $Offre->setHauteur($request->get('Hauteur'));
+            $Offre->setLargeur($request->get('Largeur'));
+            $Offre->setVoiture($request->get('Modele'));
+            $Offre->setLieuArrive($request->get('Arrive'));
+            $Offre->setPrix($request->get('Prix'));
+            $upd->flush();
+            return $this->redirectToRoute('fi_thnitek_afficherOffreback');
+
+        }
+        return $this->render('@FiThnitek/FiThnitek/modifiercolisback.html.twig',array('Offre'=> $Offre
+        ));
+
+
+
+        #  return $this->redirectToRoute("club_readbase");
+
+    }
+    public function ajouterReservationbackAction(Request $request,$id)
+    {
+        $upd=$this->getDoctrine()->getManager();
+        $Reservation=new ReservationColis();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $Offre=$this->getDoctrine()->getRepository(OffreColis::class)->find($id);
+
+        if ($request->isMethod('POST'))
+        {
+            $Reservation->setIdOffre($Offre);
+            $Reservation->setIdUR($user);
+            $Reservation->setHauteurResv($request->get('Hauteur'));
+            $Reservation->setLargeurResv($request->get('Largeur'));
+            $Reservation->setPrix(5);
+            $upd->persist($Reservation);
+            $upd->flush();
+            return $this->redirectToRoute('fi_thnitek_afficherOffreback');
+        }
+        return $this->redirectToRoute('fi_thnitek_afficherOffreback');
+
+    }
+    public function afficherReserverbackAction()
+    {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+        $em=$this->getDoctrine()->getRepository(ReservationColis::class)->findAll();
+        return $this->render('@FiThnitek/FiThnitek/affichagereservercolisback.html.twig',array('r'=>$em));
+    }
+    public function supprimerReserverbackAction($id)
+    {
+        $supp=$this->getDoctrine()->getManager();
+        $ids=$this->getDoctrine()->getRepository(ReservationColis::class)->find($id);
+        $supp->remove($ids);
+        $supp->flush();
+        return $this->redirectToRoute('fi_thnitek_affichageReservationback');
+    }
+>>>>>>> marwen
 
 }

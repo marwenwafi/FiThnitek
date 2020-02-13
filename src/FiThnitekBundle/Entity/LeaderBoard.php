@@ -1,8 +1,9 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace FiThnitekBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,7 +17,12 @@ class LeaderBoard
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idLeaderBoard;
+    private $idleaderboard;
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $title;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -26,24 +32,29 @@ class LeaderBoard
     /**
      * @ORM\Column(type="integer")
      */
-    private $taille;
+    private $size;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $periode;
+    private $start_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="idAdmin", referencedColumnName="id")
+     * @ORM\Column(type="date")
      */
-    private $categ;
+    private $end_date;
 
     /**
-     * @ManyToMany(targetEntity="AppBundle\Entity\User")
-     * @JoinTable(name="Leaderboard_Users",
-     *      joinColumns={@JoinColumn(name="idLeaderB", referencedColumnName="idLeaderBoard")},
-     *      inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="id", unique=true)}
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id_category")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinTable(name="leaderboard_users",
+     *      joinColumns={@ORM\JoinColumn(name="idleaderb", referencedColumnName="idleaderboard")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="iduser", referencedColumnName="id")}
      *      )
      */
     private $utilisateurs;
@@ -55,19 +66,43 @@ class LeaderBoard
     private $admin;
 
     /**
-     * @return mixed
+     * LeaderBoard constructor.
      */
-    public function getIdLeaderBoard()
+    public function __construct()
     {
-        return $this->idLeaderBoard;
+        $this->utilisateurs = new ArrayCollection();
     }
 
     /**
-     * @param mixed $idLeaderBoard
+     * @return mixed
      */
-    public function setIdLeaderBoard($idLeaderBoard)
+    public function getIdleaderboard()
     {
-        $this->idLeaderBoard = $idLeaderBoard;
+        return $this->idleaderboard;
+    }
+
+    /**
+     * @param mixed $idleaderboard
+     */
+    public function setIdleaderboard($idleaderboard)
+    {
+        $this->idleaderboard = $idleaderboard;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
     /**
@@ -89,33 +124,99 @@ class LeaderBoard
     /**
      * @return mixed
      */
-    public function getTaille()
+    public function getSize()
     {
-        return $this->taille;
+        return $this->size;
     }
 
     /**
-     * @param mixed $taille
+     * @param mixed $size
      */
-    public function setTaille($taille)
+    public function setSize($size)
     {
-        $this->taille = $taille;
+        $this->size = $size;
     }
 
     /**
      * @return mixed
      */
-    public function getPeriode()
+    public function getStartDate()
     {
-        return $this->periode;
+        return $this->start_date;
     }
 
     /**
-     * @param mixed $periode
+     * @param mixed $start_date
      */
-    public function setPeriode($periode)
+    public function setStartDate($start_date)
     {
-        $this->periode = $periode;
+        $this->start_date = $start_date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEndDate()
+    {
+        return $this->end_date;
+    }
+
+    /**
+     * @param mixed $end_date
+     */
+    public function setEndDate($end_date)
+    {
+        $this->end_date = $end_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * @param ArrayCollection $utilisateurs
+     */
+    public function setUtilisateurs($utilisateurs)
+    {
+        $this->utilisateurs = $utilisateurs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+    }
+
+
 
 }
