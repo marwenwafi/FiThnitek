@@ -2,41 +2,31 @@ fi_thnitek_homepage:
     path:     /
     defaults: { _controller: FiThnitekBundle:Default:index }
 
+fi_thnitek_admin:
+    path:     /admin
+    defaults: { _controller: FiThnitekBundle:Default:admin }
+
 fi_thnitek_marwen_routes:
     resource: "@FiThnitekBundle/Resources/config/marwen.yml"
+    prefix: /admin
 
-fi_thnitek_login:
-    path:     /login
-    defaults: { _controller: FiThnitekBundle:Default:login }
+fi_thnitek_maha_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingCovoiturage.yml"
+    prefix: /covoiturage
 
-fi_thnitek_register:
-    path:     /register
-    defaults: { _controller: FiThnitekBundle:Default:register }
+fi_thnitek_siwar_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingTaxi.yml"
+    prefix: /taxi
 
-fi_thnitek_offrecovoiturage:
-    path:     /offrecovoiturage
-    defaults: { _controller: FiThnitekBundle:Default:offrecovoiturage }
-fi_thnitek_affichagecovoiturageutilisateur:
-    path:     /affichagecovoiturageutilisateur
-    defaults: { _controller: FiThnitekBundle:Default:affichagecovoiturageutilisateur }
-fi_thnitek_ajoutcovoiturageutilisateur:
-    path:     /ajoutcovoiturage
-    defaults: { _controller: FiThnitekBundle:Covoiturage:ajoutoffrecovoiturage }
-fi_thnitek_affichcovoiturageutilisateur:
-    path:     /affichagebase
-    defaults: { _controller: FiThnitekBundle:Covoiturage:readoffre }
-fi_thnitek_supprimeroffre:
-    path:     /supprimeroffre/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:supprimeroffre }
-fi_thnitek_modifieroffre:
-    path:     /modifieroffre/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:modifieroffrecovoiturage }
-fi_thnitek_afficheall:
-    path:     /afficheall
-    defaults: { _controller: FiThnitekBundle:Covoiturage:afficheall }
-fi_thnitek_ajoutreservation:
-    path:     /ajoutreserv/{id}
-    defaults: { _controller: FiThnitekBundle:Covoiturage:ajoutreservation }
-fi_thnitek_readreservation:
-    path:     /readres
-    defaults: { _controller: FiThnitekBundle:Covoiturage:readreserver }
+fi_thnitek_jassem_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingColis.yml"
+    prefix: /colis
+
+fi_thnitek_sourour_routes:
+    resource: "@FiThnitekBundle/Resources/config/sourour.yml"
+    prefix: /
+
+fi_thnitek_yassin_routes:
+    resource: "@FiThnitekBundle/Resources/config/yassin.yml"
+    prefix: /reclamation
+

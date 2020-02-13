@@ -1,4 +1,4 @@
-{% extends 'FiThnitek/baseFiThnitek.html.twig' %}
+{% extends 'FiThnitek/baseFrontFiThnitek.html.twig' %}
 {% block event %}
 
 {% endblock %}
@@ -17,6 +17,7 @@
                             <div class="profile-thumb">
                                 <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
                             </div>
+                            
                             <!-- User Name -->
                             <h5 class="text-center">Samanta Doe</h5>
                             <p>Joined February 06, 2017</p>
@@ -82,12 +83,12 @@
                                         <ul class="list-inline justify-content-center">
 
                                             <li class="list-inline-item">
-                                                <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="{{ path('fi_thnitek_modifieroffre',{'id': i.idoffrecovoiturage }) }}">
+                                                <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="{{ path('fi_thnitek_modifieroffrecov',{'id': i.idoffrecovoiturage }) }}">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="{{ path('fi_thnitek_supprimeroffre',{'id': i.idoffrecovoiturage }) }}">
+                                                <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="{{ path('fi_thnitek_supprimeroffrecov',{'id': i.idoffrecovoiturage }) }}">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </li>

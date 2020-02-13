@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('@FiThnitek/FiThnitek/index.html.twig');
     }
+
+    public function adminAction()
+    {
+        return $this->render('@FiThnitek/FiThnitek/backend.html.twig');
+    }
 }

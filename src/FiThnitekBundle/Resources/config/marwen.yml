@@ -3,19 +3,19 @@
 #######################
 
 fi_thnitek_addObjectif:
-  path:     /admin/addObjectif
+  path:     /addObjectif
   defaults: { _controller: FiThnitekBundle:Objectif:addObjectif }
 
 fi_thnitek_listObjectif:
-  path:     /admin/listObjectif
+  path:     /listObjectif
   defaults: { _controller: FiThnitekBundle:Objectif:listObjectif }
 
 fi_thnitek_modifyObjectif:
-  path:     /admin/modifyObjectif/{id}
+  path:     /modifyObjectif/{id}
   defaults: { _controller: FiThnitekBundle:Objectif:modifyObjectif }
 
 fi_thnitek_deleteObjectif:
-  path:     /admin/listObjectif/{id}
+  path:     /listObjectif/{id}
   defaults: { _controller: FiThnitekBundle:Objectif:deleteObjectif }
 
 #######################
@@ -23,11 +23,11 @@ fi_thnitek_deleteObjectif:
 #######################
 
 fi_thnitek_addCategory:
-  path:     /admin/addCategory
+  path:     /addCategory
   defaults: { _controller: FiThnitekBundle:Category:addCategory }
 
 fi_thnitek_listCategory:
-  path:     /admin/listCategory
+  path:     /listCategory
   defaults: { _controller: FiThnitekBundle:Category:listCategory }
 
 fi_thnitek_modifyCategory:
@@ -35,7 +35,7 @@ fi_thnitek_modifyCategory:
   defaults: { _controller: FiThnitekBundle:Category:modifyCategory }
 
 fi_thnitek_deleteCategory:
-  path:     /admin/listCategory/{id}
+  path:     /listCategory/{id}
   defaults: { _controller: FiThnitekBundle:Category:deleteCategory }
 
 ##########################
@@ -43,17 +43,17 @@ fi_thnitek_deleteCategory:
 ##########################
 
 fi_thnitek_addLeaderBoard:
-  path:     /admin/addLeaderBoard
+  path:     /addLeaderBoard
   defaults: { _controller: FiThnitekBundle:LeaderBoard:addLeaderBoard }
 
 fi_thnitek_listLeaderBoard:
-  path:     /admin/listLeaderBoard
+  path:     /listLeaderBoard
   defaults: { _controller: FiThnitekBundle:LeaderBoard:listLeaderBoard }
 
 fi_thnitek_modifyLeaderBoard:
-  path:     /admin/modifyLeaderBoard/{id}
+  path:     /modifyLeaderBoard/{id}
   defaults: { _controller: FiThnitekBundle:LeaderBoard:modifyLeaderBoard }
 
 fi_thnitek_deleteLeaderBoard:
-  path:     /admin/listLeaderBoard/{id}
+  path:     /listLeaderBoard/{id}
   defaults: { _controller: FiThnitekBundle:LeaderBoard:deleteLeaderBoard }

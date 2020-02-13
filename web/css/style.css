@@ -959,8 +959,8 @@ ul.pagination .active a {
   border: 1px solid #404040;
   color: #c1c1c1;
   font-weight: 200;
-  padding: 4px 10px;
-  font-size: 12px;
+  padding: 25px 30px;
+  font-size: 25px;
 }
 
 .short-popular-category-list ul li a i {
