@@ -1,9 +1,74 @@
 fi_thnitek_homepage:
     path:     /
     defaults: { _controller: FiThnitekBundle:Default:index }
+<<<<<<< HEAD
 fi_thnitek_covoiturage:
     resource:    "@FiThnitekBundle/Resources/config/routingCovoiturage.yml"
     prefix: /covoiturage
 fi_thnitek_homepageback:
     path:     /back
     defaults: { _controller: FiThnitekBundle:Default:indexback }
+=======
+
+<<<<<<< HEAD
+fi_thnitek_login:
+    path:     /login
+    defaults: { _controller: FiThnitekBundle:Default:login }
+fi_thnitek_OffreColis:
+    path:     /OffreColis
+    defaults: { _controller: FiThnitekBundle:Default:OffreColis }
+fi_thnitek_CreateOffre:
+    path:     /CreateOffre
+    defaults: { _controller: FiThnitekBundle:OffreColis:ajouteroffrecolis }
+fi_thnitek_afficherOffre:
+    path:     /afficherOffre
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherOffre }
+fi_thnitek_supprimerOffre:
+    path:     /supprimerOffre/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerOffre }
+fi_thnitek_ModifierOffre:
+    path:     /modifierOffre/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:ModifierOffre }
+fi_thnitek_afficherall:
+    path:     /afficherall
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherall }
+fi_thnitek_ajouterReservation:
+    path:     /ajouterReservation/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:ajouterReservation }
+fi_thnitek_affichageReservation:
+    path:     /affichageReservation
+    defaults: { _controller: FiThnitekBundle:OffreColis:afficherReserver }
+fi_thnitek_supprimerReservation:
+    path:     /supprimerReservation/{id}
+    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerReserver }
+=======
+fi_thnitek_admin:
+    path:     /admin
+    defaults: { _controller: FiThnitekBundle:Default:admin }
+
+fi_thnitek_marwen_routes:
+    resource: "@FiThnitekBundle/Resources/config/marwen.yml"
+    prefix: /admin
+
+fi_thnitek_maha_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingCovoiturage.yml"
+    prefix: /covoiturage
+
+fi_thnitek_siwar_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingTaxi.yml"
+    prefix: /taxi
+
+fi_thnitek_jassem_routes:
+    resource: "@FiThnitekBundle/Resources/config/routingColis.yml"
+    prefix: /colis
+
+fi_thnitek_sourour_routes:
+    resource: "@FiThnitekBundle/Resources/config/sourour.yml"
+    prefix: /
+
+fi_thnitek_yassin_routes:
+    resource: "@FiThnitekBundle/Resources/config/yassin.yml"
+    prefix: /reclamation
+
+>>>>>>> marwen
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d

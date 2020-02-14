@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="http://localhost/PiDev/web/app_dev.php/">
                         <img src="{{ asset ('images/logo.png')}}" alt="" style="height: 80px;width: 100px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,7 +61,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="http://localhost/PiDev/web/app_dev.php/">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">CarSharing<span><i class="fa fa-angle-down"></i></span>
@@ -70,18 +70,25 @@
                                 <!-- Dropdown list -->
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ path('fi_thnitek_afficheall') }}">All CarSharing</a>
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
                                     <a class="dropdown-item" href="{{ path('fi_thnitek_affichcovoiturageutilisateur') }}">My carsharingoffers</a>
                                     <a class="dropdown-item" href="{{ path('fi_thnitek_readreservation') }}">My carsharing reservations</a>
                                     <a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
                                     <a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
+=======
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_affichcovoiturageutilisateur') }}">My Carsharing Offers</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_readreservation') }}">My Carsharing Reservations</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_ajoutcovoiturageutilisateur') }}">Add CarSharing Offer</a>
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
                                 </div>
                             </li>
                             <li class="nav-item dropdown dropdown-slide">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages <span><i class="fa fa-angle-down"></i></span>
+                                    Delivery <span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <!-- Dropdown list -->
                                 <div class="dropdown-menu">
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
                                     <a class="dropdown-item" href="about-us.html">About Us</a>
                                     <a class="dropdown-item" href="contact-us.html">Contact Us</a>
                                     <a class="dropdown-item" href="user-profile.html">User Profile</a>
@@ -92,23 +99,53 @@
                                     <a class="dropdown-item" href="single-blog.html">Single Post</a>
                                     <a class="dropdown-item" href="blog.html">Blog</a>
 
+=======
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_afficheall') }}">Delivery Offers</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_affichcovoiturageutilisateur') }}">My offers</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_readreservation') }}">Delivery reservations</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_ajoutcovoiturageutilisateur') }}">Add Delivery Offer</a>
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
                                 </div>
                             </li>
                             <li class="nav-item dropdown dropdown-slide">
                                 <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Listing <span><i class="fa fa-angle-down"></i></span>
+                                    Taxi <span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <!-- Dropdown list -->
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="category.html">Ad-Gird View</a>
-                                    <a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_afficheall') }}">Request a Taxi</a>
+                                    <a class="dropdown-item" href="{{ path('fi_thnitek_affichcovoiturageutilisateur') }}">My requests</a>
                                 </div>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li class="nav-item">
+                                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                    {% if is_granted("ROLE_ADMIN") %}
+                                    <a href="{{ path('fi_thnitek_admin') }}">Dashboard</a>
+                                    {% endif %}
+                                    |
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                                </li>
+                            {% else %}
                             <li class="nav-item">
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
                                 <a class="nav-link login-button" href="http://localhost/PiDev/web/app_dev.php/login">Login</a>
                             </li>
+=======
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
+                                <a class="nav-link login-button" href="http://localhost/FiThnitek-master/web/app_dev.php/login">Login</a>
+=======
+                                <a class="nav-link login-button" href="http://localhost/PiDev/web/app_dev.php/login">Login</a>
+>>>>>>> marwen:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link login-button" href="http://localhost/PiDev/web/app_dev.php/register">Register</a>
+                            </li>
+                            {% endif %}
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
 
                         </ul>
                     </div>
@@ -130,9 +167,12 @@
                 <!-- Header Contetnt -->
                 <div class="content-block">
                     <h1>We are always Fi Thnitek </h1>
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
                     <p>Join the millions who   <br> everyday in local communities around the world</p>
+=======
+                    <p>Join the millions who share  <br> rides in local communities around the world</p>
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
                     <div class="short-popular-category-list text-center">
-                        <h2>Popular Category</h2>
                         <ul class="list-inline">
                             <li class="list-inline-item">
                                 <a href="category.html"><i class="fa fa-car"></i> Taxi</a></li>
@@ -141,12 +181,15 @@
                             </li>
                             <li class="list-inline-item">
                                 <a href="category.html"><i class="fa fa-car"></i> Colis</a>
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
                             </li>
                             <li class="list-inline-item">
                                 <a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
+=======
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
                             </li>
                         </ul>
                     </div>
@@ -170,11 +213,21 @@
 =            Popular deals section            =
 ============================================-->
 {% block container %}
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
     <section class="popular-deals section bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
 
+=======
+<section class="popular-deals section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Trending Event</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
                 </div>
             </div>
             <div class="row">
@@ -338,10 +391,13 @@
     </section>
 {% endblock %}
 
+<<<<<<< HEAD:app/Resources/views/Fithnitek/baseFiThnitek.html.twig
 <!--====================================
 =            Call to Action            =
 =====================================-->
 
+=======
+>>>>>>> d54fd961b26c291c86bf787af077a8d06a50e02d:app/Resources/views/Fithnitek/baseFrontFiThnitek.html.twig
 
 <!--============================
 =            Footer            =
@@ -355,11 +411,9 @@
                 <!-- About -->
                 <div class="block about">
                     <!-- footer logo -->
-                    <img src="images/logo-footer.png" alt="">
                     <!-- description -->
-                    <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="alt-color">Fi Thnitek is an application that makes your life easier,
+                    getting a cab, a ride, or even a delivery has never been easier.</p>
                 </div>
             </div>
             <!-- Link list -->
@@ -399,7 +453,7 @@
                     <div class="mobile d-flex">
                         <a href="">
                             <!-- Icon -->
-                            <img src="images/footer/phone-icon.png" alt="mobile-icon">
+                            <img src="{{ asset ('images/logo.png')}}" alt="Fi Thnitek" style="height: 80px;width: 100px;">
                         </a>
                         <p>Get the Dealsy Mobile App and Save more</p>
                     </div>

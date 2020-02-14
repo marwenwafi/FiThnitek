@@ -1,9 +1,8 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace FiThnitekBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,7 +15,7 @@ class Objectif
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idObjectif;
+    private $idOjectif;
 
     /**
      * @ORM\Column(type="string",length=255)
@@ -29,9 +28,10 @@ class Objectif
     private $description;
 
     /**
-     * @ORM\Column(type="string",length=255)
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id_category")
      */
-    private $type;
+    private $category;
 
     /**
      * @ORM\Column(type="integer")
@@ -52,18 +52,19 @@ class Objectif
     /**
      * @return mixed
      */
-    public function getIdObjectif()
+    public function getIdOjectif()
     {
-        return $this->idObjectif;
+        return $this->idOjectif;
     }
 
     /**
-     * @param mixed $idObjectif
+     * @param mixed $idOjectif
      */
-    public function setIdObjectif($idObjectif)
+    public function setIdOjectif($idOjectif)
     {
-        $this->idObjectif = $idObjectif;
+        $this->idOjectif = $idOjectif;
     }
+
 
     /**
      * @return mixed
@@ -100,18 +101,20 @@ class Objectif
     /**
      * @return mixed
      */
-    public function getType()
+    public function getCategory()
     {
-        return $this->type;
+        return $this->category;
     }
 
     /**
-     * @param mixed $type
+     * @param mixed $category
      */
-    public function setType($type)
+    public function setCategory($category)
     {
-        $this->type = $type;
+        $this->category = $category;
     }
+
+
 
     /**
      * @return mixed
@@ -143,6 +146,22 @@ class Objectif
     public function setEtat($etat)
     {
         $this->etat = $etat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
     }
 
 
