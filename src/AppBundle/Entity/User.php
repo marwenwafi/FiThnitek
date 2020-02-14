@@ -43,9 +43,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="integer")
      */
-<<<<<<< HEAD
-    protected $nbroffre ;
-=======
+
     protected $nbroffre=0 ;
 
     /**
@@ -53,7 +51,7 @@ class User extends BaseUser
      */
     protected $points = 0 ;
 
->>>>>>> marwen
+
     /**
      * @ORM\Column(type="string",length=255)
      */

@@ -40,11 +40,8 @@ class OffreColisController extends Controller
             $Offre->setPrix($request->get('Prix'));
             $upd->persist($Offre);
             $upd->flush();
-<<<<<<< HEAD
             return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig');
-=======
             return $this->redirectToRoute("fi_thnitek_afficherOffre");
->>>>>>> marwen
         }
         return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig',array('Offre'=> $Offre
         ));
@@ -111,12 +108,9 @@ class OffreColisController extends Controller
             $Reservation->setPrix(5);
             $upd->persist($Reservation);
             $upd->flush();
-<<<<<<< HEAD
             return $this->render('@FiThnitek/FiThnitek/login.html.twig',array('r'=> $Reservation));
-=======
             return$this->redirectToRoute("fi_thnitek_affichageReservation");
           //  return $this->render('@FiThnitek/FiThnitek/login.html.twig',array('r'=> $Reservation));
->>>>>>> marwen
         }
         return $this->render('@FiThnitek/FiThnitek/register.html.twig');
 
@@ -136,8 +130,7 @@ class OffreColisController extends Controller
         $supp->flush();
         return $this->redirectToRoute('fi_thnitek_affichageReservation');
     }
-<<<<<<< HEAD
-=======
+
 ////////////////////////////////Back///////////////////////////////////////////////////
     public function afficherOffrebackAction()
     {
@@ -236,6 +229,6 @@ return $this->render('@FiThnitek/FiThnitek/ajouterOffreBack.html.twig');
         $supp->flush();
         return $this->redirectToRoute('fi_thnitek_affichageReservationback');
     }
->>>>>>> marwen
+
 
 }

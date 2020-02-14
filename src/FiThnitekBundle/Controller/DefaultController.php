@@ -13,14 +13,6 @@ class DefaultController extends Controller
 
     public function adminAction()
     {
-<<<<<<< HEAD
-        return $this->render('@FiThnitek/FiThnitek/login.html.twig');
-    }
-    public function OffreColisAction()
-    {
-        return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig');
-=======
         return $this->render('@FiThnitek/FiThnitek/backend.html.twig');
->>>>>>> marwen
     }
 }
