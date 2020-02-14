@@ -19,4 +19,8 @@ class DefaultController extends Controller
     {
         return $this->render('@FiThnitek/FiThnitek/OffreColis.html.twig');
     }
+    public function indexbackAction()
+    {
+        return $this->render('@FiThnitek/FiThnitek/indexback.html.twig');
+    }
 }

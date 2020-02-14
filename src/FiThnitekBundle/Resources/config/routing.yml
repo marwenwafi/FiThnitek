@@ -1,34 +1,9 @@
 fi_thnitek_homepage:
     path:     /
     defaults: { _controller: FiThnitekBundle:Default:index }
-
-fi_thnitek_login:
-    path:     /login
-    defaults: { _controller: FiThnitekBundle:Default:login }
-fi_thnitek_OffreColis:
-    path:     /OffreColis
-    defaults: { _controller: FiThnitekBundle:Default:OffreColis }
-fi_thnitek_CreateOffre:
-    path:     /CreateOffre
-    defaults: { _controller: FiThnitekBundle:OffreColis:ajouteroffrecolis }
-fi_thnitek_afficherOffre:
-    path:     /afficherOffre
-    defaults: { _controller: FiThnitekBundle:OffreColis:afficherOffre }
-fi_thnitek_supprimerOffre:
-    path:     /supprimerOffre/{id}
-    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerOffre }
-fi_thnitek_ModifierOffre:
-    path:     /modifierOffre/{id}
-    defaults: { _controller: FiThnitekBundle:OffreColis:ModifierOffre }
-fi_thnitek_afficherall:
-    path:     /afficherall
-    defaults: { _controller: FiThnitekBundle:OffreColis:afficherall }
-fi_thnitek_ajouterReservation:
-    path:     /ajouterReservation/{id}
-    defaults: { _controller: FiThnitekBundle:OffreColis:ajouterReservation }
-fi_thnitek_affichageReservation:
-    path:     /affichageReservation
-    defaults: { _controller: FiThnitekBundle:OffreColis:afficherReserver }
-fi_thnitek_supprimerReservation:
-    path:     /supprimerReservation/{id}
-    defaults: { _controller: FiThnitekBundle:OffreColis:supprimerReserver }
+fi_thnitek_covoiturage:
+    resource:    "@FiThnitekBundle/Resources/config/routingCovoiturage.yml"
+    prefix: /covoiturage
+fi_thnitek_homepageback:
+    path:     /back
+    defaults: { _controller: FiThnitekBundle:Default:indexback }

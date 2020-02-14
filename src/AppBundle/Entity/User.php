@@ -43,7 +43,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="integer")
      */
-    protected $nbroffre ;
+    protected $nbroffre=0 ;
     /**
      * @ORM\Column(type="string",length=255)
      */

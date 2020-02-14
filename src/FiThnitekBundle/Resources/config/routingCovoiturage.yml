@@ -36,3 +36,12 @@ fi_thnitek_supprimercovback:
 fi_thnitek_modifierrcovback:
     path:     /modifiercovback/{id}
     defaults: { _controller: FiThnitekBundle:Covoiturage:modifiercovback }
+fi_thnitek_resevcovback:
+    path:     /reservcovback/{id}
+    defaults: { _controller: FiThnitekBundle:Covoiturage:ajoutreservationBack }
+fi_thnitek_affichageresevcovback:
+    path:     /affichageresback
+    defaults: { _controller: FiThnitekBundle:Covoiturage:afficheallreservationBack }
+fi_thnitek_suppresevcovback:
+    path:     /supprimerrescovback/{id}
+    defaults: { _controller: FiThnitekBundle:Covoiturage:supprimerrescovback }
