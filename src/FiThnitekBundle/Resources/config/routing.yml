@@ -2,6 +2,10 @@ fi_thnitek_homepage:
     path:     /
     defaults: { _controller: FiThnitekBundle:Default:index }
 
+fi_thniteksourour:
+      resource: "@FiThnitekBundle/Resources/config/sourour.yml"
+      prefix:   /
+
 fi_thnitek_login:
     path:     /login
     defaults: { _controller: FiThnitekBundle:Default:login }
@@ -35,3 +39,6 @@ fi_thnitek_ajoutreservation:
 fi_thnitek_readreservation:
     path:     /readres
     defaults: { _controller: FiThnitekBundle:Covoiturage:readreserver }
+
+
+

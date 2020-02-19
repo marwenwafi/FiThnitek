@@ -40,8 +40,8 @@ class LeaderBoard
     private $categ;
 
     /**
-     * @ManyToMany(targetEntity="AppBundle\Entity\User")
-     * @JoinTable(name="Leaderboard_Users",
+     * @@ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
+     * @@ORM\JoinTable(name="Leaderboard_Users",
      *      joinColumns={@JoinColumn(name="idLeaderB", referencedColumnName="idLeaderBoard")},
      *      inverseJoinColumns={@JoinColumn(name="idUser", referencedColumnName="id", unique=true)}
      *      )

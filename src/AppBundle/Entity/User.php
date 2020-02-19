@@ -3,14 +3,17 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FiThnitekBundle\Entity\Event;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ *
  */
-class User extends BaseUser
+class User extends BaseUser implements \Serializable
 {
     /**
      * @ORM\Id
@@ -45,15 +48,25 @@ class User extends BaseUser
      */
     protected $nbroffre =0 ;
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $points =0 ;
+    /**
      * @ORM\Column(type="string",length=255)
      */
     protected $type ;
 
 
+
+
+
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
+
+
     }
 
     /**
@@ -102,6 +115,34 @@ class User extends BaseUser
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+       /* $now=new \DateTime();
+        $naissance=$this->getDatedenaissance();
+        $day=$naissance->format("d");
+        $month=$naissance->format("m");
+        $dayNow=$now->format("d");
+        $monthNow=$now->format("m");
+
+
+        if($day==$dayNow and $month==$monthNow)
+        {
+        $this->setPoints($this->points+20);
+        }*/
+        return $this->points;
+    }
+
+    /**
+     * @param int $points
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
     }
 
     /**
@@ -182,6 +223,32 @@ class User extends BaseUser
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+
+
+
+
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->prenom,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->prenom,
+
+            ) = unserialize($serialized);
     }
 
 }

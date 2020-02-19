@@ -30,7 +30,7 @@ class Categorie
 
 
     /**
-     * @ORM\Column(type="String",length=255)
+     * @ORM\Column(type="string",length=255)
      */
     private $typeCategorie;
 
